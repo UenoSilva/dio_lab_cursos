@@ -7,7 +7,7 @@ import com.dio.academia.entity.AvaliacaoFisica;
 public interface AvaliacaoFisicaService {
 
 	// criar uma avalição física e retorna a avalição física criada
-	AvaliacaoFisica create(AvaliacaoFisica avaliacaoFisica);
+	AvaliacaoFisica create(AvaliacaoFisicaForm avaliacaoFisica);
 	
 	// buscar uma avalição física pelo seu id
 	AvaliacaoFisica get(Long id);
