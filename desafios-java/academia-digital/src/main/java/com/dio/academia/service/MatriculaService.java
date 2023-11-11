@@ -3,6 +3,7 @@ package com.dio.academia.service;
 import java.util.List;
 
 import com.dio.academia.entity.Matricula;
+import com.dio.academia.entity.form.MatriculaForm;
 
 public interface MatriculaService {
 

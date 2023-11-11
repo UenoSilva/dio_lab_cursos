@@ -3,6 +3,8 @@ package com.dio.academia.service;
 import java.util.List;
 
 import com.dio.academia.entity.Aluno;
+import com.dio.academia.entity.form.AlunoForm;
+import com.dio.academia.entity.form.AlunoUpdateForm;
 
 public interface AlunoService {
 
@@ -16,7 +18,7 @@ public interface AlunoService {
 	List<Aluno> getAll();
 	
 	// atualizar as informaçãoes do aluno
-	Aluno update(Long id, AlunoUpadateForm formUpadte);
+	Aluno update(Long id, AlunoUpdateForm formUpadte);
 	
 	// deletar um aluno pelo seu id
 	void delete(Long id);

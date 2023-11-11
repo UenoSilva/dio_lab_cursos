@@ -3,6 +3,8 @@ package com.dio.academia.service;
 import java.util.List;
 
 import com.dio.academia.entity.AvaliacaoFisica;
+import com.dio.academia.entity.form.AvaliacaoFisicaForm;
+import com.dio.academia.entity.form.AvaliacaoFisicaUpdateForm;
 
 public interface AvaliacaoFisicaService {
 
