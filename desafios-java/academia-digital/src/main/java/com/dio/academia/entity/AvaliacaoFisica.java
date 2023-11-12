@@ -36,5 +36,5 @@ public class AvaliacaoFisica {
 	private double peso;
 
 	@Column(name = "altura_atual")
-	private double alura;
+	private double altura;
 }
