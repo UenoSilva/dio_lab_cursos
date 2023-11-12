@@ -1,6 +1,7 @@
 package com.dio.academia.service.impl;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,7 @@ public class AlunoServiceImpl implements AlunoService {
 
 	@Override
 	public Aluno get(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id).orElseThrow(NoSuchElementException::new);
 	}
 
 	@Override
@@ -41,14 +41,18 @@ public class AlunoServiceImpl implements AlunoService {
 
 	@Override
 	public Aluno update(Long id, AlunoUpdateForm formUpadte) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Aluno aluno = repository.findById(id).get();
+		aluno.setNome(formUpadte.getNome());
+		aluno.setBairro(formUpadte.getBairro());
+		aluno.setDataNascimento(formUpadte.getDataNascimento());
+		
+		return repository.save(aluno);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-
+		repository.deleteById(id);
 	}
 
 }
