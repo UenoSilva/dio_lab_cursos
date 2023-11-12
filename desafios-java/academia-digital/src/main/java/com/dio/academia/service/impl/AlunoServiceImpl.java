@@ -23,7 +23,7 @@ public class AlunoServiceImpl implements AlunoService {
 		aluno.setNome(form.getNome());
 		aluno.setBairro(form.getBairro());
 		aluno.setCpf(form.getCpf());
-		aluno.setDataNascimento(form.getDataDeNascimento());
+		aluno.setDataNascimento(form.getDataNascimento());
 		
 		return repository.save(aluno);
 	}
