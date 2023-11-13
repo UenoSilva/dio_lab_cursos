@@ -18,7 +18,7 @@
 
 ## Descrição
 
-API Rest com Spring Boot e Maven para criação de uma academia digital, onde são cadrastrados alunos, matriculas e avaliações físicas.
+API Rest com Spring Boot e Maven para criação de uma academia digital, onde são cadastrados alunos, matriculas e avaliações físicas.
 
 ## Diagrama de classes
 
