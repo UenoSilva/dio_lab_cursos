@@ -17,6 +17,8 @@ import com.dio.academia.entity.form.AvaliacaoFisicaForm;
 import com.dio.academia.entity.form.AvaliacaoFisicaUpdateForm;
 import com.dio.academia.service.impl.AvaliacaoFisicaServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/avaliacoes")
 public class AvaliacaoFisicaController {
@@ -30,7 +32,7 @@ public class AvaliacaoFisicaController {
 	}
 	
 	@PostMapping
-	public AvaliacaoFisica create(@RequestBody AvaliacaoFisicaForm form) {
+	public AvaliacaoFisica create(@Valid @RequestBody AvaliacaoFisicaForm form) {
 		return service.create(form);
 	}
 	
@@ -40,7 +42,7 @@ public class AvaliacaoFisicaController {
 	}
 	
 	@PutMapping("/{id}")
-	public AvaliacaoFisica update(@PathVariable Long id, @RequestBody AvaliacaoFisicaUpdateForm form) {
+	public AvaliacaoFisica update(@PathVariable Long id, @Valid @RequestBody AvaliacaoFisicaUpdateForm form) {
 		return service.update(id, form);
 	}
 	

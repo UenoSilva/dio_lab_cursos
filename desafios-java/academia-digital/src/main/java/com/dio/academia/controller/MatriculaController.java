@@ -15,6 +15,8 @@ import com.dio.academia.entity.Matricula;
 import com.dio.academia.entity.form.MatriculaForm;
 import com.dio.academia.service.impl.MatriculaServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/matriculas")
 public class MatriculaController {
@@ -28,7 +30,7 @@ public class MatriculaController {
 	}
 	
 	@PostMapping
-	public Matricula create(@RequestBody MatriculaForm form) {
+	public Matricula create(@Valid @RequestBody MatriculaForm form) {
 		return service.create(form);
 	}
 	

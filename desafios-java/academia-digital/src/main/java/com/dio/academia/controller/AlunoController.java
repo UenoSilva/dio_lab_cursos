@@ -18,6 +18,8 @@ import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
 import com.dio.academia.service.impl.AlunoServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
@@ -31,17 +33,17 @@ public class AlunoController {
 	}
 
 	@PostMapping
-	public Aluno create(@RequestBody AlunoForm form) {
+	public Aluno create(@Valid @RequestBody AlunoForm form) {
 		return service.create(form);
 	}
 
 	@GetMapping("/{id}")
-	public Aluno get(@PathVariable Long id) {
+	public Aluno get(@Valid @PathVariable Long id) {
 		return service.get(id);
 	}
 	
 	@GetMapping("/avaliacoes/{id}")
-	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(@PathVariable Long id){
+	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(@Valid @PathVariable Long id){
 		return service.getAllAvalicaoFisicaId(id);
 	}
 
