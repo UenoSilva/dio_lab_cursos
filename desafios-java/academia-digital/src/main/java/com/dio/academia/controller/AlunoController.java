@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dio.academia.entity.Aluno;
+import com.dio.academia.entity.AvaliacaoFisica;
 import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
 import com.dio.academia.service.impl.AlunoServiceImpl;
+
+import lombok.experimental.PackagePrivate;
 
 @RestController
 @RequestMapping("/alunos")
@@ -37,6 +40,11 @@ public class AlunoController {
 	@GetMapping("/{id}")
 	public Aluno get(@PathVariable Long id) {
 		return service.get(id);
+	}
+	
+	@GetMapping("/avaliacoes/{id}")
+	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(@PathVariable Long id){
+		return service.getAllAvalicaoFisicaId(id);
 	}
 
 	@PutMapping("/{id}")

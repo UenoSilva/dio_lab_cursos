@@ -3,6 +3,7 @@ package com.dio.academia.service;
 import java.util.List;
 
 import com.dio.academia.entity.Aluno;
+import com.dio.academia.entity.AvaliacaoFisica;
 import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
 
@@ -16,6 +17,9 @@ public interface AlunoService {
 	
 	// retorna todos os alunos
 	List<Aluno> getAll();
+	
+	// retorn tadas as avalições físicas do aluno
+	List<AvaliacaoFisica> getAllAvalicaoFisicaId(Long id);
 	
 	// atualizar as informaçãoes do aluno
 	Aluno update(Long id, AlunoUpdateForm formUpadte);

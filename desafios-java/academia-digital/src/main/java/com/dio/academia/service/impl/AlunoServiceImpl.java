@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dio.academia.entity.Aluno;
+import com.dio.academia.entity.AvaliacaoFisica;
 import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
 import com.dio.academia.repository.AlunoRepository;
@@ -37,6 +38,13 @@ public class AlunoServiceImpl implements AlunoService {
 	@Override
 	public List<Aluno> getAll() {
 		return repository.findAll();
+	}
+	
+	@Override
+	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(Long id){
+		Aluno aluno = repository.findById(id).get();
+		
+		return aluno.getAvaliacao();
 	}
 
 	@Override
