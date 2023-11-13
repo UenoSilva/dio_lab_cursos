@@ -13,11 +13,11 @@ import com.dio.academia.repository.MatriculaRepository;
 import com.dio.academia.service.MatriculaService;
 
 @Service
-public class MatriculaServiceImpl implements MatriculaService{
-	
+public class MatriculaServiceImpl implements MatriculaService {
+
 	@Autowired
 	private MatriculaRepository matriculaRepository;
-	
+
 	@Autowired
 	private AlunoRepository alunoRepository;
 
@@ -25,9 +25,9 @@ public class MatriculaServiceImpl implements MatriculaService{
 	public Matricula create(MatriculaForm form) {
 		Matricula matricula = new Matricula();
 		Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
-		
+
 		matricula.setAluno(aluno);
-		
+
 		return matriculaRepository.save(matricula);
 	}
 
@@ -37,8 +37,12 @@ public class MatriculaServiceImpl implements MatriculaService{
 	}
 
 	@Override
-	public List<Matricula> getAll() {
-		return matriculaRepository.findAll();
+	public List<Matricula> getAll(String bairro) {
+		if (bairro == null) {
+			return matriculaRepository.findAll();
+		} else {
+			return matriculaRepository.findByAlunoBairro(bairro);
+		}
 	}
 
 	@Override

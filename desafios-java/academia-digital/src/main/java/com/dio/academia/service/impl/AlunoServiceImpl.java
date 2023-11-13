@@ -1,5 +1,6 @@
 package com.dio.academia.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -10,6 +11,7 @@ import com.dio.academia.entity.Aluno;
 import com.dio.academia.entity.AvaliacaoFisica;
 import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
+import com.dio.academia.infra.utils.JavaTimeUtils;
 import com.dio.academia.repository.AlunoRepository;
 import com.dio.academia.service.AlunoService;
 
@@ -26,7 +28,7 @@ public class AlunoServiceImpl implements AlunoService {
 		aluno.setBairro(form.getBairro());
 		aluno.setCpf(form.getCpf());
 		aluno.setDataNascimento(form.getDataNascimento());
-		
+
 		return repository.save(aluno);
 	}
 
@@ -36,25 +38,31 @@ public class AlunoServiceImpl implements AlunoService {
 	}
 
 	@Override
-	public List<Aluno> getAll() {
-		return repository.findAll();
+	public List<Aluno> getAll(String dataNascimento) {
+
+		if (dataNascimento == null) {
+			return repository.findAll();
+		} else {
+			LocalDate date = LocalDate.parse(dataNascimento, JavaTimeUtils.LOCAL_DATE_FORMATTER);
+			return repository.findByDataNascimento(date);
+		}
 	}
-	
+
 	@Override
-	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(Long id){
+	public List<AvaliacaoFisica> getAllAvalicaoFisicaId(Long id) {
 		Aluno aluno = repository.findById(id).get();
-		
+
 		return aluno.getAvaliacao();
 	}
 
 	@Override
 	public Aluno update(Long id, AlunoUpdateForm formUpadte) {
-		
+
 		Aluno aluno = repository.findById(id).get();
 		aluno.setNome(formUpadte.getNome());
 		aluno.setBairro(formUpadte.getBairro());
 		aluno.setDataNascimento(formUpadte.getDataNascimento());
-		
+
 		return repository.save(aluno);
 	}
 

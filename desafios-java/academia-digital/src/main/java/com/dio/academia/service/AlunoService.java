@@ -16,7 +16,7 @@ public interface AlunoService {
 	Aluno get(Long id);
 	
 	// retorna todos os alunos
-	List<Aluno> getAll();
+	List<Aluno> getAll(String dataNascimento);
 	
 	// retorn tadas as avalições físicas do aluno
 	List<AvaliacaoFisica> getAllAvalicaoFisicaId(Long id);

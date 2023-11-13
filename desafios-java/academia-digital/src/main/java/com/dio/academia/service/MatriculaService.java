@@ -14,7 +14,7 @@ public interface MatriculaService {
 	Matricula get(Long id);
 	
 	// retorna todas as matriculas
-	List<Matricula> getAll();
+	List<Matricula> getAll(String bairro);
 	
 	// deleta uma matricula pelo id
 	void delete(Long id);
