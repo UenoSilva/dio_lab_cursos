@@ -18,8 +18,6 @@ import com.dio.academia.entity.form.AlunoForm;
 import com.dio.academia.entity.form.AlunoUpdateForm;
 import com.dio.academia.service.impl.AlunoServiceImpl;
 
-import lombok.experimental.PackagePrivate;
-
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
