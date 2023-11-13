@@ -48,5 +48,5 @@ classDiagram
   }
 
   Aluno --|> AvaliacaoFisica : possui[*]
-  Aluno --|> Matricula : possui[0..*]
+  Aluno --|> Matricula : possui[0..1]
 ```
