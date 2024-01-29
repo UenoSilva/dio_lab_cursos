@@ -1,7 +1,8 @@
-package ueno.dio.githubsearch
+package ueno.dio.githubsearch.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ueno.dio.githubsearch.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
