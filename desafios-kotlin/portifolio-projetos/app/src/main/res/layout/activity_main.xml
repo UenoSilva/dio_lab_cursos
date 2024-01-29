@@ -29,27 +29,26 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/bt_seach"
+        android:id="@+id/bt_search"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/bt_comfirmar"
         android:drawableRight="@drawable/ic_search"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:text="@string/bt_comfirmar"
         android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_name_user"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list_repositories"
+        android:id="@+id/rv_repositories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_seach"
-        tools:listitem="@layout/repository_item"/>
+        app:layout_constraintTop_toBottomOf="@id/bt_search"
+        tools:listitem="@layout/repository_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
