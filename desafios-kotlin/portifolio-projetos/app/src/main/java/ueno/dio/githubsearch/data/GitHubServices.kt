@@ -1,4 +1,4 @@
-package ueno.dio.githubsearch.ui.data
+package ueno.dio.githubsearch.data
 
 import retrofit2.Call
 import retrofit2.http.GET

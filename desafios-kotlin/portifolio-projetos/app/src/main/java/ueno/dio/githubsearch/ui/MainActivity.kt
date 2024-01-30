@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import ueno.dio.githubsearch.R
-import ueno.dio.githubsearch.ui.data.GitHubServices
+import ueno.dio.githubsearch.data.GitHubServices
 
 class MainActivity : AppCompatActivity() {
 
