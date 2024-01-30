@@ -26,4 +26,10 @@ class MainActivity : AppCompatActivity() {
         repositories = findViewById(R.id.rv_repositories)
     }
 
+    fun setupListeners(){
+        btnComfirmar.setOnClickListener{
+
+        }
+    }
+
 }
