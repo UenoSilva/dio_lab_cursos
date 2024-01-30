@@ -3,6 +3,7 @@ package ueno.dio.githubsearch.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,11 @@ class RepositoryAdapter(private val repositories: List<Repository>) :
 
     override fun onBindViewHolder(holder: RepositoryAdapter.ViewHolder, position: Int) {
         holder.name.text = repositories[position].name
+
+        holder.itemView.setOnClickListener{
+            repoItemLister(repositories[position])
+        }
+
         holder.btn.setOnClickListener {
             btnShareLister(repositories[position])
         }

@@ -25,7 +25,7 @@
                 android:id="@+id/tv_name_repository"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome do Repositório"
+                tools:text="Nome do repositorio"
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>

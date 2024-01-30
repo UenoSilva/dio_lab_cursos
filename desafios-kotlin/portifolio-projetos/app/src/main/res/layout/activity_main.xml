@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="user name"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:maxLength="10"
         android:layout_marginTop="16dp"

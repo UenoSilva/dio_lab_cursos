@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "ueno.dio.githubsearch"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ueno.dio.githubsearch"

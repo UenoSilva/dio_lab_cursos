@@ -6,6 +6,6 @@ import retrofit2.http.Path
 import ueno.dio.githubsearch.domain.Repository
 
 interface GitHubServices {
-    @GET("users/{user}/repor")
+    @GET("users/{user}/repos")
     fun getAllRepositoriesByUser(@Path("user") user: String): Call<List<Repository>>
 }
