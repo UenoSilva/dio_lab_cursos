@@ -2,6 +2,6 @@
 
 App para listagem de projetos.
 
-## Screen shorts
+## Screenshorts
 
-<img src="arquivos/1706633700642.jpg width=300>
+<img src="arquivos/1706633700651.jpg" alt="image1" width="500"> <img src="arquivos/1706633700647.jpg" alt="image1" width="500"> <img src="arquivos/1706633700642.jpg" alt="image1" width="500">
