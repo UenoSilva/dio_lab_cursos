@@ -27,7 +27,18 @@ class AddTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = TaskRepository(this)
+
+        if (intent.hasExtra(TASK_ID)) {
+            val taskId = intent.getIntExtra(TASK_ID, 0)
+            TaskDataSource.findTaskById(taskId)?.let {
+                binding.tilTitle.text = it.title
+                binding.tilDescription.text = it.description
+                binding.tilDate.text = it.date
+                binding.tilHour.text = it.hour
+            }
+        }
+
+        //repository = TaskRepository(this)
         setupListeners()
     }
 
@@ -69,8 +80,8 @@ class AddTaskActivity : AppCompatActivity() {
                     date = binding.tilDate.text,
                     hour = binding.tilHour.text
                 )
-            repository.savaIfNotExist(task)
-            //TaskDataSource.insertTask(task)
+            //repository.savaIfNotExist(task)
+            TaskDataSource.insertTask(task)
             setResult(Activity.RESULT_OK)
             finish()
         }

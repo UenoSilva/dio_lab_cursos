@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         adapter.listenerDelete = {
-            TaskRepository(this).delete(it)
-            //TaskDataSource.deleteTask(it)
+            //TaskRepository(this).delete(it)
+            TaskDataSource.deleteTask(it)
             updateList()
         }
     }
@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList() {
-        //var list = TaskDataSource.getList()
-        var list = repository.getAll()
+        var list = TaskDataSource.getList()
+        //var list = repository.getAll()
         if (list.isEmpty()) {
             binding.includedEmptyState.clEmptyState.visibility = View.VISIBLE
         } else {
