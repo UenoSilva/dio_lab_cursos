@@ -12,8 +12,8 @@ import com.ueno.todolistapp.domain.Task
 
 class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCallback()) {
 
-    private var listenerEdit: (Task) -> Unit = {}
-    private var listenerDelete: (Task) -> Unit = {}
+    var listenerEdit: (Task) -> Unit = {}
+    var listenerDelete: (Task) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val inflate = LayoutInflater.from(parent.context)

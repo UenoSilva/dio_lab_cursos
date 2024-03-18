@@ -17,4 +17,8 @@ object TaskDataSource {
         }
     }
 
+    fun deleteTask(task: Task) {
+        list.remove(task)
+    }
+
 }
