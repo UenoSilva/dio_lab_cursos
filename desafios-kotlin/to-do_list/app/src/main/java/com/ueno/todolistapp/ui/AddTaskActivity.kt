@@ -1,13 +1,17 @@
 package com.ueno.todolistapp.ui
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.ueno.todolistapp.databinding.ActivityAddTaskBinding
-import com.ueno.todolistapp.datasource.TaskDataSource
+import com.ueno.todolistapp.data.TaskDataSource
+import com.ueno.todolistapp.data.local.TaskRepository
 import com.ueno.todolistapp.domain.Task
 import com.ueno.todolistapp.extentions.format
 import com.ueno.todolistapp.extentions.text
@@ -17,14 +21,16 @@ import java.util.TimeZone
 class AddTaskActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddTaskBinding
+    lateinit var repository: TaskRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        repository = TaskRepository(this)
         setupListeners()
     }
+
 
     private fun setupListeners() {
         binding.tilDate.editText?.setOnClickListener {
@@ -63,7 +69,8 @@ class AddTaskActivity : AppCompatActivity() {
                     date = binding.tilDate.text,
                     hour = binding.tilHour.text
                 )
-            TaskDataSource.insertTask(task)
+            repository.savaIfNotExist(task)
+            //TaskDataSource.insertTask(task)
             setResult(Activity.RESULT_OK)
             finish()
         }

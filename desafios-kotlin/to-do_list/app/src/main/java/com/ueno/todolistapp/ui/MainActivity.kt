@@ -4,17 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import com.ueno.todolistapp.R
 import com.ueno.todolistapp.databinding.ActivityMainBinding
-import com.ueno.todolistapp.datasource.TaskDataSource
+import com.ueno.todolistapp.data.TaskDataSource
+import com.ueno.todolistapp.data.local.TaskRepository
 import com.ueno.todolistapp.ui.adapter.TaskListAdapter
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val adapter by lazy { TaskListAdapter() }
+    private lateinit var repository: TaskRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rvTasks.adapter = adapter
+        repository = TaskRepository(this)
         updateList()
         setupListeners()
     }
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         adapter.listenerDelete = {
-            TaskDataSource.deleteTask(it)
+            TaskRepository(this).delete(it)
+            //TaskDataSource.deleteTask(it)
             updateList()
         }
     }
@@ -51,7 +53,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList() {
-        var list = TaskDataSource.getList()
+        //var list = TaskDataSource.getList()
+        var list = repository.getAll()
         if (list.isEmpty()) {
             binding.includedEmptyState.clEmptyState.visibility = View.VISIBLE
         } else {

@@ -1,5 +1,6 @@
-package com.ueno.todolistapp.datasource
+package com.ueno.todolistapp.data
 
+import com.ueno.todolistapp.data.local.TaskRepository
 import com.ueno.todolistapp.domain.Task
 
 object TaskDataSource {
