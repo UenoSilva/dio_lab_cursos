@@ -10,15 +10,15 @@ object TaskDataSource {
     fun getList() = list.toList()
 
     fun insertTask(task: Task) {
-        if (task.id == 0) {
-            list.add(task.copy(id = list.size + 1))
+        if (task.id == 0L) {
+            list.add(task.copy(id = list.size + 1L))
         } else {
             list.remove(task)
             list.add(task)
         }
     }
 
-    fun findTaskById(taskId: Int) = list.find { it.id == taskId }
+    fun findTaskById(taskId: Long) = list.find { it.id == taskId }
 
     fun deleteTask(task: Task) {
         list.remove(task)

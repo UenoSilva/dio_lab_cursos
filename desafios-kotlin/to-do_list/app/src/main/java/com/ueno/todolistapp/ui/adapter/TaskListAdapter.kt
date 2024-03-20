@@ -28,15 +28,15 @@ class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCa
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Task) {
             binding.tvTitleTask.text = item.title
-            binding.tvDate.text = "${item.date} ${item.hour}"
+            "${item.date} ${item.hour}".also { binding.tvDate.text = it }
             binding.ivMore.setOnClickListener {
                 showPopup(item)
             }
         }
 
         private fun showPopup(item: Task) {
-            var ivMore = binding.ivMore
-            var popMenu = PopupMenu(ivMore.context, ivMore)
+            val ivMore = binding.ivMore
+            val popMenu = PopupMenu(ivMore.context, ivMore)
             popMenu.menuInflater.inflate(R.menu.popup_menu, popMenu.menu)
             popMenu.setOnMenuItemClickListener {
                 when (it.itemId) {

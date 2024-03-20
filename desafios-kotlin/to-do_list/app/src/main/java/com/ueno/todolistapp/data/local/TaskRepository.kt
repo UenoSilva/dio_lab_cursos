@@ -2,8 +2,6 @@ package com.ueno.todolistapp.data.local
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
-import android.provider.BaseColumns
 import android.util.Log
 import com.ueno.todolistapp.data.local.TaskContract.TaskEntry.COLUMNS_NAME_DATE
 import com.ueno.todolistapp.data.local.TaskContract.TaskEntry.COLUMNS_NAME_DESCRIPTION
@@ -13,41 +11,43 @@ import com.ueno.todolistapp.data.local.TaskContract.TaskEntry.COLUMNS_NAME_TITLE
 import com.ueno.todolistapp.data.local.TaskContract.TaskEntry.TABLE_NAME
 import com.ueno.todolistapp.domain.Task
 
+@Suppress("NAME_SHADOWING")
 class TaskRepository(private val context: Context) {
-    fun save(task: Task) {
-        try {
-            val dbHelper = TaskDbHelper(context)
-            val db = dbHelper.writableDatabase
-            val values = ContentValues().apply {
-                put(COLUMNS_NAME_ID, task.id)
-                put(COLUMNS_NAME_TITLE, task.title)
-                put(COLUMNS_NAME_DESCRIPTION, task.description)
-                put(COLUMNS_NAME_DATE, task.date)
-                put(COLUMNS_NAME_HOUR, task.hour)
-            }
-            val insert = db?.insert(TABLE_NAME, null, values)
-        } catch (e: Exception) {
-            Log.e("ERROR", e.message.toString())
+    private fun save(title: String, description: String, date: String, hour: String) {
+
+        val dbHelper = TaskDbHelper(context)
+        val db = dbHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMNS_NAME_TITLE, title)
+            put(COLUMNS_NAME_DESCRIPTION, description)
+            put(COLUMNS_NAME_DATE, date)
+            put(COLUMNS_NAME_HOUR, hour)
         }
+        val insert = db?.insert(TABLE_NAME, null, values)
+
+        Log.e("SAVE", "$insert")
+
     }
 
-    fun findTaskBYId(id: Int): Task {
+    fun findTaskBYId(id: String): Task {
         val dbHelper = TaskDbHelper(context)
         val db = dbHelper.readableDatabase
         val columns = arrayOf(
-            BaseColumns._ID,
             COLUMNS_NAME_ID,
             COLUMNS_NAME_TITLE,
             COLUMNS_NAME_DESCRIPTION,
             COLUMNS_NAME_DATE,
             COLUMNS_NAME_HOUR
         )
-
-        val filter = "$COLUMNS_NAME_ID = ?"
-        val filterValues = arrayOf(id.toString())
-
+        val filterValues = arrayOf(id)
         val cursor = db.query(
-            TaskContract.TaskEntry.TABLE_NAME, columns, filter, filterValues, null, null, null
+            TABLE_NAME,
+            columns,
+            "task_id = ?",
+            filterValues,
+            null,
+            null,
+            null
         )
 
         var itemTask = Task(
@@ -56,7 +56,7 @@ class TaskRepository(private val context: Context) {
 
         with(cursor) {
             while (moveToNext()) {
-                val id = getInt(getColumnIndexOrThrow(COLUMNS_NAME_ID))
+                val id = getLong(getColumnIndexOrThrow(COLUMNS_NAME_ID))
                 val title = getString(getColumnIndexOrThrow(COLUMNS_NAME_TITLE))
                 val description = getString(getColumnIndexOrThrow(COLUMNS_NAME_DESCRIPTION))
                 val date = getString(getColumnIndexOrThrow(COLUMNS_NAME_DATE))
@@ -74,23 +74,12 @@ class TaskRepository(private val context: Context) {
     fun getAll(): MutableList<Task> {
         val dbHelper = TaskDbHelper(context)
         val db = dbHelper.readableDatabase
-        val columns = arrayOf(
-            BaseColumns._ID,
-            COLUMNS_NAME_ID,
-            COLUMNS_NAME_TITLE,
-            COLUMNS_NAME_DESCRIPTION,
-            COLUMNS_NAME_DATE,
-            COLUMNS_NAME_HOUR
-        )
-
-        val cursor = db.query(
-            TaskContract.TaskEntry.TABLE_NAME, columns, null, null, null, null, null
-        )
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
         val taskList = mutableListOf<Task>()
 
         with(cursor) {
             while (moveToNext()) {
-                val id = getInt(getColumnIndexOrThrow(COLUMNS_NAME_ID))
+                val id = getLong(getColumnIndexOrThrow(COLUMNS_NAME_ID))
                 val title = getString(getColumnIndexOrThrow(COLUMNS_NAME_TITLE))
                 val description = getString(getColumnIndexOrThrow(COLUMNS_NAME_DESCRIPTION))
                 val date = getString(getColumnIndexOrThrow(COLUMNS_NAME_DATE))
@@ -107,18 +96,34 @@ class TaskRepository(private val context: Context) {
         return taskList
     }
 
-    fun delete(task: Task) {
+    fun delete(id: String) {
         val dbHelper = TaskDbHelper(context)
-        val db = dbHelper.readableDatabase
-        val filter = "$COLUMNS_NAME_ID = ?"
-        val filterValues = arrayOf(task.id.toString())
-        val deletedRows = db.delete(TABLE_NAME, filter, filterValues)
+        val db = dbHelper.writableDatabase
+        db.delete(TABLE_NAME, "task_id = ?", arrayOf(id))
+    }
+
+    private fun update(id: String, title: String, description: String, date: String, hour: String) {
+        val dbHelper = TaskDbHelper(context)
+        val db = dbHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMNS_NAME_TITLE, title)
+            put(COLUMNS_NAME_DESCRIPTION, description)
+            put(COLUMNS_NAME_DATE, date)
+            put(COLUMNS_NAME_HOUR, hour)
+        }
+        db.update(TABLE_NAME, values, "task_id = ?", arrayOf(id))
     }
 
     fun savaIfNotExist(task: Task) {
-        var taskId = findTaskBYId(task.id)
-        if (taskId.id == 0) {
-            save(task)
+        //var taskId = findTaskBYId(task.id)
+        val taskId = findTaskBYId(task.id.toString())
+        Log.e("TASK ID", "$taskId")
+        if (taskId.id == 0L) {
+            save(task.title, task.description, task.date, task.hour)
+            Log.e("SAVE TASK", "a task foi salvar")
+        } else {
+            Log.e("UPADATE TASK", "a task foi atualizou")
+            update(task.id.toString(), task.title, task.description, task.date, task.hour)
         }
     }
 

@@ -14,8 +14,7 @@ object TaskContract {
 
     const val TABLE_TASK =
         "CREATE TABLE ${TaskEntry.TABLE_NAME} (" +
-                "${BaseColumns._ID} INTEGER PRIMARY KEY," +
-                "${TaskEntry.COLUMNS_NAME_ID} TEXT," +
+                "${TaskEntry.COLUMNS_NAME_ID} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "${TaskEntry.COLUMNS_NAME_TITLE} TEXT," +
                 "${TaskEntry.COLUMNS_NAME_DESCRIPTION} TEXT," +
                 "${TaskEntry.COLUMNS_NAME_DATE} TEXT," +

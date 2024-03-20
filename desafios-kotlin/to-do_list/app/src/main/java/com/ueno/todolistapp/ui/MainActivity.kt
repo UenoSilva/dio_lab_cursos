@@ -4,12 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.ueno.todolistapp.databinding.ActivityMainBinding
-import com.ueno.todolistapp.data.TaskDataSource
 import com.ueno.todolistapp.data.local.TaskRepository
 import com.ueno.todolistapp.ui.adapter.TaskListAdapter
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -34,17 +35,20 @@ class MainActivity : AppCompatActivity() {
 
         adapter.listenerEdit = {
             val intent = Intent(this, AddTaskActivity::class.java)
-            intent.putExtra(AddTaskActivity.TASK_ID, it.id)
+            intent.putExtra(AddTaskActivity.TASK_ID, it.id.toString())
             startActivityForResult(intent, CREATE_TASK)
         }
 
         adapter.listenerDelete = {
-            //TaskRepository(this).delete(it)
-            TaskDataSource.deleteTask(it)
+            Log.e("DELETE LISTENERS", it.toString())
+            TaskRepository(this).delete(it.id.toString())
+            repository.delete(it.id.toString())
+            //TaskDataSource.deleteTask(it)
             updateList()
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CREATE_TASK && resultCode == Activity.RESULT_OK) {
@@ -53,8 +57,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList() {
-        var list = TaskDataSource.getList()
-        //var list = repository.getAll()
+        //var list = TaskDataSource.getList()
+        val list = repository.getAll()
         if (list.isEmpty()) {
             binding.includedEmptyState.clEmptyState.visibility = View.VISIBLE
         } else {
