@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MeuPrimeiroAppDio</string>
+    <string name="mensagem">Meu primeiro aplicativo android utilizando a IDE Android Studio.</string>
+</resources>
