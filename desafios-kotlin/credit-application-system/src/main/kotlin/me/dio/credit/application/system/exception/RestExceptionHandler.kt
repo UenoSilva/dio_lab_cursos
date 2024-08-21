@@ -37,7 +37,7 @@ class RestExceptionHandler {
     }
 
     // Exception personalizada
-    // Verificar se os parametros unico do body, lançando um exception caso sejam digitas novamente.
+    // Verificar se os parametros unicos do body, lançando um exception caso sejam inseridos novamente.
     @ExceptionHandler(DataAccessException::class)
     fun handlerValidException(ex: DataAccessException): ResponseEntity<ExceptionDetails> {
         return ResponseEntity(
