@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clínica TopSaúde - Contato</title>
+	<style>
+		html, body {
+			margin: 0;
+		}
+		body {
+			background-color: #f1f1f1;
+			display: flex;
+			justify-content: center;
+		}
+
+		.wrapper {
+			width: 1200px;
+			display: flex;
+			margin: 0 auto;
+			background-color: aquamarine;
+		}
+		.main {
+			display: flex;
+			flex-flow: column;
+			width: 85%;
+		}
+		
+		.menu {
+			width: 15%;
+			background-color: #f1f1f1;
+			padding: 10px 20px 0px;
+		}
+		
+		.header {
+			background-color: rgb(5, 108, 108);
+			min-height: 150px;
+			background-image: url("imagens/home.jpg");
+			background-size: 1000px;
+			background-position: contain;
+			background-repeat: no-repeat;
+		}
+		
+		.header .logo {
+			padding-top: 42px;
+			padding-bottom: 42px;
+			padding-left: 10px;
+			float: left;
+		}
+		
+		.header .descricao {
+			padding: 10px;			
+		}
+		
+		.content {
+			background-color: white;
+			min-height: 300px;
+			padding: 20px;
+		}
+		
+		.content-info {
+			display: flex;
+		}
+		
+		.content-info .informacao {
+			float: left;
+			padding-right: 16px;
+		}
+		
+		.content-info .mapas {
+			float: right;
+			padding-left: 16px;
+		}
+		
+		
+		.footer {
+			background-color: #e9e9e9;
+			min-height: 150px;
+		}
+		
+		.footer .redes-sociais {
+			padding-top: 32px;
+			padding-bottom: 16px;
+			text-align: center;
+		}
+		
+		.footer .redes-sociais a {
+			padding: 16px;
+		}
+		
+		.informacao p {
+			padding-left: 16px;
+		}
+		
+		form {
+		  width: 600px;
+		  margin: 20px auto;
+		  padding: 20px; 
+		  border: 1px solid #ccc;
+		  border-radius: 5px;
+		  background-color: #f0f0f0; 
+		}
+
+		label {
+		  display: block;
+		  margin-bottom: 5px;
+		}
+		
+		input[type="text"],
+		input[type="email"],
+		textarea {
+		  width: 96%; /* Faz os campos ocuparem toda a largura do formulário */
+		  padding: 10px;
+		  margin-bottom: 8px;
+		  border: 1px solid #ccc;
+		  border-radius: 3px;
+		}
+		
+		textarea {
+		  height: 100px;
+		}
+
+		button {
+		  background-color: #ADD8E6;
+		  color: black;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 3px;
+		  cursor: pointer;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="menu">
+			<ul>
+				<li>
+					<a href=index.html>Home</a>
+				</li>
+				<li>
+					<a href=sobre.html>Sobre</a>
+				</li>
+				<li>
+					<a href=horario.html>Horário</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="main">
+			
+			<div class="header">
+			
+				<div class="logo">
+					<img src="imagens/logo.png" width="150">
+				</div>
+				
+				<div class="descricao">
+					<h1 align="center">Contato da TopHealth</h1>
+					<p align="center">Espelicialida em cínica geral, psicologia, pediatria e oftalmologia.</p>
+				</div>
+				
+			</div>
+			
+			<div class="content">
+			
+				<div class="content-info">
+					<div class="informacao">
+					
+						<h3>Contato</h3>
+						
+						<p><strong>Telefone</strong>: (11) 94567-1234 (WhatsApp)</p>
+						
+						<p><strong>Endereço</strong>: Rua da Saúde, 123, Bairro da Saúde, São Paulo - SP, CEP 01234-567</p>
+						
+						<br>
+						
+						<h3>Horário de Atendimento</h3>
+
+						<p>Segunda a sexta-feira: 8h às 19h</p>
+
+						<p>Sábados: 8h às 14h</p>
+						
+						<p>Feriados: 8h às 14h</p>
+					
+					</div>
+						
+					<div class="mapas">
+					
+						<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d58474.558656960835!2d-47.26125654924074!3d-23.65234733373575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m5!1s0x94cefff7ea06ef25%3A0xc4a243069cfbafed!2sTop%20Health%20Corretora%20de%20Planos%20de%20Sa%C3%BAde%20-%20Rua%20Zico%20Soares%20-%20Centro%2C%20Ibi%C3%BAna%20-%20SP!3m2!1d-23.652431399999998!2d-47.2200567!4m0!5e0!3m2!1spt-BR!2sbr!4v1737010261963!5m2!1spt-BR!2sbr" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					
+					</div>
+					
+				</div>
+				
+				<h3>Formulário de Contato</h3>
+				
+				<form>
+				
+					<label>Nome: </label> <input type="text" name="nome"/> <br>
+					<label>E-mail: </label> <input type="email" name="email"/> <br>
+					<label>Assunto: </label> <input type="text" name="assunto"/> <br>
+					<label>Messagem: </label><textarea rows="10" cols="20" name="mensagem"></textarea> <br>
+					<button type="submit">Enviar</button>
+					
+				</form>
+				
+			</div>
+			
+			<div class="footer">
+				
+				<div align="center" class="redes-sociais">
+					<a href="https://www.whatsapp.com/" target="_blank"><img src="imagens/whatsapp_logo.png" width="32px"></a>
+					<a href="https://www.instagram.com/" target="_blank"><img src="imagens/instagram_logo.png" width="32px"></a>
+					<a href="https://www.facebook.com/" target="_blank"><img src="imagens/facebook_logo.png"width="32px"></a>
+					<a href="https://www.youtube.com/" target="_blank"><img src="imagens/youtube_logo.png" width="32px"></a>
+				</div>
+			
+				<p align="center">Site criado por Ueno Souza Silva @2025.</p>
+			</div>
+		
+		</div>
+		
+	</div>
+</body>
+</html>
