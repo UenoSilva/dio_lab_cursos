@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clínica TopSaúde - Horário</title>
+	<style>
+		html, body {
+			margin: 0;
+		}
+		body {
+			background-color: #f1f1f1;
+			display: flex;
+			justify-content: center;
+		}
+
+		.wrapper {
+			width: 1200px;
+			display: flex;
+			margin: 0 auto;
+			background-color: aquamarine;
+		}
+		.main {
+			display: flex;
+			flex-flow: column;
+			width: 85%;
+		}
+		
+		.menu {
+			width: 15%;
+			background-color: #f1f1f1;
+			padding: 10px 20px 0px;
+		}
+		
+		.header {
+			background-color: rgb(5, 108, 108);
+			min-height: 150px;
+			background-image: url("imagens/home.jpg");
+			background-size: 1000px;
+			background-position: contain;
+			background-repeat: no-repeat;
+		}
+		
+		.header .logo {
+			padding-top: 42px;
+			padding-bottom: 42px;
+			padding-left: 10px;
+			float: left;
+		}
+		
+		.header .descricao {
+			padding: 10px;			
+		}
+		
+		.content {
+			background-color: white;
+			min-height: 300px;
+			padding: 20px;
+		}
+		
+		
+		.footer {
+			background-color: #e9e9e9;
+			min-height: 150px;
+		}
+		
+		.footer .redes-sociais {
+			padding-top: 32px;
+			padding-bottom: 16px;
+			text-align: center;
+		}
+		
+		.footer .redes-sociais a {
+			padding: 16px;
+		}
+		
+		table {
+			border: solid 2px #f1f1f1;;
+		}
+	
+		table .preco tr{
+			background-color: #ADD8E6;
+			color: black;
+		}
+		
+		table .horario tr{
+			background-color: #BAB86C;
+			color: black;
+		}
+		
+		table tbody tr:nth-child(even) td {
+			background-color: #e9e9e9;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="menu">
+			<ul>
+				<li>
+					<a href=index.html>Home</a>
+				</li>
+				<li>
+					<a href=sobre.html>Sobre</a>
+				</li>
+				<li>
+					<a href=contato.html>Contato</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="main">
+			
+			<div class="header">
+			
+				<div class="logo">
+					<img src="imagens/logo.png" width="150">
+				</div>
+				
+				<div class="descricao">
+					<h1 align="center">Horário de funcionamento da TopHealth</h1>
+					<p align="center">Espelicialida em cínica geral, psicologia, pediatria e oftalmologia.</p>
+				</div>
+				
+			</div>
+			
+			<div class="content">
+			
+				<h2>Top Health: Seu bem-estar ao seu alcance</h2>
+				
+				<p>A Clínica Top Health oferece uma variedade de serviços médicos para cuidar da sua saúde e da sua família. Com uma equipe de profissionais altamente qualificados e equipamentos de última geração, garantimos um atendimento personalizado e de excelência.</p>
+				
+				
+				<h4>Nossos serviços:</h4>
+				
+				<ul>
+					<li>
+						<strong>Clínica Geral</strong>:  Consultas, exames físicos, prescrição de medicamentos, acompanhamento de doenças crônicas.
+					</li>
+					<li>
+						<strong>Psicologia</strong>: Terapia individual, de casal e familiar, avaliação psicológica.
+					</li>
+					<li>
+						<strong>Pediatria</strong>: Consultas pediátricas, vacinação, acompanhamento do crescimento.
+					</li>
+					<li>
+						<strong>Oftalmologia</strong>: Consultas oftalmológicas, exame de refração, tratamento de doenças oculares.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<h3>Tabela de Preços</h3>
+				
+				<table summary="Tabela de preços da clínica top health"  width="700" align="center" cellpadding="8px" cellspacing="0px">
+					<thead class="preco">
+						<tr>
+							<th>Serviço</th>
+							<th>Segunda-feira</th>
+							<th>Terça-feira</th>
+							<th>Quarta-feira</th>
+							<th>Quinta-feira</th>
+							<th>Sexta-feira</th>
+							<th>Sábado</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Consulta Geral</td>
+							<td>R$ 150,00</td>
+							<td>R$ 150,00</td>
+							<td>R$ 150,00</td>
+							<td>R$ 150,00</td>
+							<td>R$ 150,00</td>
+							<td>R$ 180,00</td>
+						</tr>
+						<tr>
+							<td>Consulta Psicologia</td>
+							<td>R$ 180,00</td>
+							<td>R$ 180,00</td>
+							<td>R$ 180,00</td>
+							<td>R$ 180,00</td>
+							<td>R$ 180,00</td>
+							<td>R$ 200,00</td>
+						</tr>
+						<tr>
+							<td>Consulta Pediatria</td>
+							<td>R$ 130,00</td>
+							<td>R$ 130,00</td>
+							<td>R$ 130,00</td>
+							<td>R$ 130,00</td>
+							<td>R$ 130,00</td>
+							<td>R$ 150,00</td>
+						</tr>
+						<tr>
+							<td>Consulta Oftalmologia</td>
+							<td>R$ 200,00</td>
+							<td>R$ 200,00</td>
+							<td>R$ 200,00</td>
+							<td>R$ 200,00</td>
+							<td>R$ 200,00</td>
+							<td>R$ 220,00</td>
+					</tbody>
+				</table>
+				
+				<h3>Horário</h3>
+				
+				<table summary="Tabela de horário da clínica top health"  width="700" align="center" cellpadding="8px" cellspacing="0px">
+					<thead class="horario">
+						<tr>
+							<th>Serviço</th>
+							<th>Segunda a Sexta</th>
+							<th>Sábados</th>
+							<th>Feriados</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Clínica Geral</td>
+							<td>08h - 19h</td>
+							<td>08h - 14h</td>
+							<td>08h - 14h</td>
+						</tr>
+						<tr>
+							<td>Psicologia</td>
+							<td>08h - 19h</td>
+							<td>08h - 14h</td>
+							<td>08h - 14h</td>
+						</tr>
+						<tr>
+							<td>Pediatria</td>
+							<td>08h - 19h</td>
+							<td>08h - 14h</td>
+							<td> - </td>
+						</tr>
+						<tr>
+							<td>oftalmologia</td>
+							<td>08h - 19h</td>
+							<td>08h - 14h</td>
+							<td> - </td>
+					</tbody>
+				</table>
+				
+			</div>
+			
+			<div class="footer">
+				
+				<div align="center" class="redes-sociais">
+					<a href="https://www.whatsapp.com/" target="_blank"><img src="imagens/whatsapp_logo.png" width="32px"></a>
+					<a href="https://www.instagram.com/" target="_blank"><img src="imagens/instagram_logo.png" width="32px"></a>
+					<a href="https://www.facebook.com/" target="_blank"><img src="imagens/facebook_logo.png"width="32px"></a>
+					<a href="https://www.youtube.com/" target="_blank"><img src="imagens/youtube_logo.png" width="32px"></a>
+				</div>
+			
+				<p align="center">Site criado por Ueno Souza Silva @2025.</p>
+			</div>
+		
+		</div>
+		
+	</div>
+</body>
+</html>
