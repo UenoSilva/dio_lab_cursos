@@ -1,0 +1,92 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header > .logo {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header > .logo > img {
+    width: 100%;
+}
+
+header > .logo > h1 {
+	position: absolute;
+    top: 100px;
+    left: 50%; /* Posiciona o canto esquerdo no centro */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    min-height: 200px;
+	max-height: 1000px;
+	font-size: 60px;
+    color: white;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.non-style{
+	list-style: none; 
+	padding-left: 5px; 
+}
+
+.two_ol {
+	columns: 2;
+}
+
+.two_ol > li {
+	padding-right: 16px;
+}
+
+.footer-ul {
+	display: flex;
+	list-style: none; 
+	padding-left: 5px;
+	justify-content: center;
+}
+
+.footer-ul > li {
+	padding:16px;
+}
+
+a { color:blue; text-decoration: none;}
+
+.bar {
+    background-color: #f9f9fb;
+    padding:15px;
+    border-top: solid 1px #cdcdcd;
+    border-bottom: solid 1px #cdcdcd;
+}
+
+.content {
+    max-width: 1440px;
+    margin: auto;
+    grid-gap: 3rem;
+    display: grid;
+    gap: 3rem;
+    grid-template-areas: "nav main aside";
+    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+nav {
+    border-right: solid 1px #cdcdcd;
+}
+
+aside {
+    border-left: solid 1px #cdcdcd;
+    padding-left: 15px;
+}
+
+footer {
+	text-align: center;
+    min-height: 100px;
+    border-top: solid 1px #cdcdcd;
+}
+
+figure {
+    text-align: center;
+}
